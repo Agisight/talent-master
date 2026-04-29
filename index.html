@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talent Master | AI Achievement Intelligence</title>
+  <meta name="description" content="Talent Master is an AI achievement intelligence platform that turns scattered evidence into a living talent graph for career, education, immigration, grants, and recognition." />
+
+  <meta property="og:title" content="Talent Master | AI Achievement Intelligence" />
+  <meta property="og:description" content="A living proof system for modern talent." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      --bg: #f8f6f1;
+      --card: rgba(255, 255, 255, 0.64);
+      --text: #111111;
+      --muted: #5f5f66;
+      --line: rgba(17, 17, 17, 0.08);
+      --blue: #007aff;
+      --purple: #8b5cf6;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    .frame {
+      min-height: calc(100vh - 40px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0, 122, 255, 0.12), transparent 32%),
+        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(0, 122, 255, 0.07), transparent 38%),
+        var(--bg);
+    }
+
+    .nav {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-weight: 720;
+      font-size: 1.02rem;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 112px 28px 84px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.42);
+      color: var(--muted);
+      font-size: 0.88rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 0 18px rgba(0, 122, 255, 0.5);
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      max-width: 760px;
+      font-size: clamp(3.25rem, 8vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      font-weight: 780;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      max-width: 690px;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 2.1vw, 1.45rem);
+      line-height: 1.48;
+      letter-spacing: -0.025em;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 650;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .button.primary {
+      color: white;
+      background: #111111;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.46);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .visual {
+      min-height: 520px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle, rgba(0, 122, 255, 0.13), transparent 28%), radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.13), transparent 30%);
+      filter: blur(16px);
+      z-index: 0;
+    }
+
+    /* ===== Living Talent Graph: crystal version ===== */
+
+    .crystal-graph-shell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 560px;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .crystal-graph-svg {
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+    }
+
+    .graph-link {
+      stroke: url(#lineGradient);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 8 14;
+      animation: dashFlow 10s linear infinite;
+    }
+
+    @keyframes dashFlow {
+      from { stroke-dashoffset: 0; }
+      to { stroke-dashoffset: -220; }
+    }
+
+    .graph-node {
+      fill: rgba(255, 255, 255, 0.78);
+      stroke: rgba(17, 17, 17, 0.06);
+      stroke-width: 1.2;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.06));
+    }
+
+    .node-label {
+      font-size: 15px;
+      font-weight: 650;
+      fill: #1a1a1a;
+      letter-spacing: -0.02em;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+    }
+
+    .travel-dot.blue {
+      fill: #49a7ff;
+      filter: drop-shadow(0 0 10px rgba(73, 167, 255, 0.65));
+    }
+
+    .travel-dot.purple {
+      fill: #ab84ff;
+      filter: drop-shadow(0 0 10px rgba(171, 132, 255, 0.65));
+    }
+
+    .crystal-halo {
+      fill: url(#haloGradient);
+      opacity: 0.82;
+    }
+
+    .crystal-outline {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.88);
+      stroke-width: 2.2;
+    }
+
+    .crystal-facet {
+      stroke: rgba(255, 255, 255, 0.50);
+      stroke-width: 1.2;
+    }
+
+    .crystal-rotor {
+      transform-origin: 380px 270px;
+      transform-box: view-box;
+      animation: spinZ 24s linear infinite;
+    }
+
+    @keyframes spinZ {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .crystal-title {
+      font-size: 24px;
+      font-weight: 760;
+      fill: #111111;
+      letter-spacing: -0.05em;
+      text-anchor: middle;
+      paint-order: stroke;
+      stroke: rgba(255, 255, 255, 0.72);
+      stroke-width: 4px;
+      stroke-linejoin: round;
+    }
+
+    .crystal-subtitle {
+      font-size: 17px;
+      font-weight: 580;
+      fill: #5b5b63;
+      letter-spacing: -0.03em;
+      text-anchor: middle;
+      paint-order: stroke;
+      stroke: rgba(255, 255, 255, 0.66);
+      stroke-width: 3px;
+      stroke-linejoin: round;
+    }
+
+    .crystal-node {
+      animation: nodeBreath 7.2s ease-in-out infinite;
+    }
+
+    .crystal-node:nth-of-type(2) { animation-delay: -0.8s; }
+    .crystal-node:nth-of-type(3) { animation-delay: -1.6s; }
+    .crystal-node:nth-of-type(4) { animation-delay: -2.4s; }
+    .crystal-node:nth-of-type(5) { animation-delay: -3.2s; }
+    .crystal-node:nth-of-type(6) { animation-delay: -4s; }
+
+    @keyframes nodeBreath {
+      0%, 100% { opacity: 0.98; }
+      50% { opacity: 0.88; }
+    }
+
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .contact-modal.open {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.28);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .modal-card {
+      width: min(100%, 480px);
+      position: relative;
+      z-index: 1;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 28px 100px rgba(0, 0, 0, 0.24);
+      padding: 28px;
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+    }
+
+    .modal-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+      letter-spacing: -0.05em;
+    }
+
+    .modal-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .email-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--text);
+      font-weight: 650;
+      word-break: break-all;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 78px 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 760;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 220px;
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.52);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 16px 52px rgba(0, 0, 0, 0.045);
+    }
+
+    .card .num {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 28px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.28rem;
+      letter-spacing: -0.035em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 1rem;
+    }
+
+    .wide-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+      border-radius: 28px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.52);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .panel {
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .list li {
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      position: absolute;
+      left: 0;
+      top: 0.56em;
+    }
+
+    .quote {
+      max-width: 920px;
+      padding: 48px;
+      border-radius: 30px;
+      background: #111;
+      color: white;
+      box-shadow: 0 24px 90px rgba(0, 0, 0, 0.18);
+    }
+
+    .quote p {
+      margin: 0;
+      font-size: clamp(1.6rem, 4vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      font-weight: 720;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 24px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 74px 28px 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      body { padding: 12px; }
+      .frame { min-height: calc(100vh - 24px); }
+      .nav { padding: 22px 20px 0; }
+      .nav-links a:not(.button) { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 74px 20px 54px;
+      }
+      .visual { min-height: 420px; }
+      .crystal-graph-shell { min-height: 430px; padding: 2px; }
+      .node-label { font-size: 12px; }
+      .crystal-title { font-size: 18px; }
+      .crystal-subtitle { font-size: 14px; }
+      .section { padding: 54px 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .wide-card { grid-template-columns: 1fr; }
+      .quote { padding: 32px; }
+      .footer { padding: 48px 20px 28px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <nav class="nav">
+      <div class="logo">Talent Master</div>
+      <div class="nav-links">
+        <a href="#product">Product</a>
+        <a href="#use-cases">Use cases</a>
+        <a href="#founder">Founder</a>
+        <a class="button secondary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Started as a personal prototype in May 2025</div>
+        <h1>A living proof system for <span class="gradient">modern talent.</span></h1>
+        <p class="lead">
+          Talent Master turns scattered achievements into an AI-powered talent graph — helping people capture evidence, organize multiple talent tracks, and understand what to do next.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
+          <a class="button secondary" href="#product">See how it works</a>
+        </div>
+      </div>
+
+      <div class="visual crystal-graph-shell" aria-label="Animated living talent graph">
+        <svg class="crystal-graph-svg" viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7cbcff" stop-opacity="0.25" />
+              <stop offset="50%" stop-color="#75a7ff" stop-opacity="0.80" />
+              <stop offset="100%" stop-color="#b98dff" stop-opacity="0.55" />
+            </linearGradient>
+
+            <linearGradient id="facetBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#dff4ff">
+                <animate attributeName="stop-color" values="#dff4ff;#cfe7ff;#e6dcff;#dff4ff" dur="10s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stop-color="#77c6ff">
+                <animate attributeName="stop-color" values="#77c6ff;#89b8ff;#8fc9ff;#77c6ff" dur="10s" repeatCount="indefinite" />
+              </stop>
+            </linearGradient>
+
+            <linearGradient id="facetPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#efe3ff">
+                <animate attributeName="stop-color" values="#efe3ff;#e5dcff;#f4e8ff;#efe3ff" dur="11s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stop-color="#b792ff">
+                <animate attributeName="stop-color" values="#b792ff;#9d8dff;#c89cff;#b792ff" dur="11s" repeatCount="indefinite" />
+              </stop>
+            </linearGradient>
+
+            <radialGradient id="facetCenter" cx="50%" cy="45%" r="65%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.92" />
+              <stop offset="60%" stop-color="#d8ecff" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#c8b8ff" stop-opacity="0.32" />
+            </radialGradient>
+
+            <radialGradient id="haloGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#dfe8ff" stop-opacity="0.95" />
+              <stop offset="45%" stop-color="#c5d9ff" stop-opacity="0.45" />
+              <stop offset="72%" stop-color="#d7c9ff" stop-opacity="0.22" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+            </radialGradient>
+
+            <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="10" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <path id="pEvidence" d="M380 270 L170 150" fill="none" />
+            <path id="pSkills" d="M380 270 L590 150" fill="none" />
+            <path id="pRecognition" d="M380 270 L165 405" fill="none" />
+            <path id="pNext" d="M380 270 L595 410" fill="none" />
+          </defs>
+
+          <line x1="380" y1="270" x2="170" y2="150" class="graph-link" />
+          <line x1="380" y1="270" x2="590" y2="150" class="graph-link" />
+          <line x1="380" y1="270" x2="165" y2="405" class="graph-link" />
+          <line x1="380" y1="270" x2="595" y2="410" class="graph-link" />
+          <line x1="380" y1="270" x2="380" y2="95" class="graph-link" />
+          <line x1="380" y1="270" x2="380" y2="460" class="graph-link" />
+
+          <circle r="6" class="travel-dot blue"><animateMotion dur="5.3s" repeatCount="indefinite"><mpath href="#pEvidence" /></animateMotion></circle>
+          <circle r="6" class="travel-dot purple"><animateMotion dur="6.2s" repeatCount="indefinite"><mpath href="#pSkills" /></animateMotion></circle>
+          <circle r="6" class="travel-dot blue"><animateMotion dur="6.8s" repeatCount="indefinite"><mpath href="#pRecognition" /></animateMotion></circle>
+          <circle r="6" class="travel-dot purple"><animateMotion dur="5.8s" repeatCount="indefinite"><mpath href="#pNext" /></animateMotion></circle>
+
+          <g class="crystal-node">
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="6.8s" repeatCount="indefinite" />
+            <circle cx="170" cy="150" r="52" class="graph-node" />
+            <text x="170" y="150" class="node-label">Evidence</text>
+          </g>
+
+          <g class="crystal-node">
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -7; 0 0" dur="7.5s" repeatCount="indefinite" />
+            <circle cx="380" cy="95" r="52" class="graph-node" />
+            <text x="380" y="95" class="node-label">Career</text>
+          </g>
+
+          <g class="crystal-node">
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="7.1s" repeatCount="indefinite" />
+            <circle cx="590" cy="150" r="52" class="graph-node" />
+            <text x="590" y="150" class="node-label">Skills</text>
+          </g>
+
+          <g class="crystal-node">
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 6; 0 0" dur="7.4s" repeatCount="indefinite" />
+            <circle cx="165" cy="405" r="52" class="graph-node" />
+            <text x="165" y="405" class="node-label">Recognition</text>
+          </g>
+
+          <g class="crystal-node">
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 6; 0 0" dur="7.0s" repeatCount="indefinite" />
+            <circle cx="595" cy="410" r="52" class="graph-node" />
+            <text x="595" y="410" class="node-label">Next Steps</text>
+          </g>
+
+          <g class="crystal-node">
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 7; 0 0" dur="7.8s" repeatCount="indefinite" />
+            <circle cx="380" cy="460" r="52" class="graph-node" />
+            <text x="380" y="460" class="node-label">Immigration</text>
+          </g>
+
+          <g filter="url(#softGlow)">
+            <circle cx="380" cy="270" r="122" class="crystal-halo">
+              <animate attributeName="opacity" values="0.65;0.95;0.7;0.65" dur="6s" repeatCount="indefinite" />
+            </circle>
+          </g>
+
+          <g class="crystal-rotor">
+            <polygon class="crystal-facet" fill="url(#facetCenter)" points="380,142 462,198 452,318 380,388 308,318 298,198" />
+            <polygon class="crystal-outline" points="380,142 462,198 452,318 380,388 308,318 298,198" />
+
+            <polygon class="crystal-facet" fill="url(#facetBlue)" points="380,142 298,198 350,244" />
+            <polygon class="crystal-facet" fill="url(#facetPurple)" points="380,142 462,198 410,244" />
+            <polygon class="crystal-facet" fill="url(#facetBlue)" points="298,198 350,244 334,334 308,318" />
+            <polygon class="crystal-facet" fill="url(#facetPurple)" points="462,198 410,244 426,334 452,318" />
+            <polygon class="crystal-facet" fill="url(#facetBlue)" points="334,334 380,388 308,318" />
+            <polygon class="crystal-facet" fill="url(#facetPurple)" points="426,334 380,388 452,318" />
+            <polygon class="crystal-facet" fill="url(#facetCenter)" points="350,244 410,244 426,334 334,334" />
+
+            <line x1="380" y1="142" x2="350" y2="244" class="crystal-outline" opacity="0.55" />
+            <line x1="380" y1="142" x2="410" y2="244" class="crystal-outline" opacity="0.55" />
+            <line x1="350" y1="244" x2="334" y2="334" class="crystal-outline" opacity="0.40" />
+            <line x1="410" y1="244" x2="426" y2="334" class="crystal-outline" opacity="0.40" />
+            <line x1="334" y1="334" x2="380" y2="388" class="crystal-outline" opacity="0.40" />
+            <line x1="426" y1="334" x2="380" y2="388" class="crystal-outline" opacity="0.40" />
+          </g>
+
+          <text x="380" y="260" class="crystal-title">Living Talent</text>
+          <text x="380" y="286" class="crystal-subtitle">Graph</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>The problem</h2>
+        <p>
+          People do meaningful work for years, but their achievements are scattered across emails, screenshots, files, links, publications, apps, and memory.
+        </p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="num">01</div>
+          <h3>Evidence gets lost</h3>
+          <p>Important proof is buried across inboxes, cloud folders, chats, websites, and screenshots.</p>
+        </article>
+        <article class="card">
+          <div class="num">02</div>
+          <h3>Resumes are too flat</h3>
+          <p>Modern careers are multidimensional: engineering, research, leadership, community, media, and product impact.</p>
+        </article>
+        <article class="card">
+          <div class="num">03</div>
+          <h3>People start too late</h3>
+          <p>They reconstruct years of work only when applying for a visa, grant, founder program, school, or senior role.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="product">
+      <div class="section-header">
+        <h2>What Talent Master does</h2>
+        <p>
+          A mobile-first iPad/macOS experience for low-friction capture, AI-assisted structuring, and scoped access to the right slice of your profile.
+        </p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="num">Capture</div>
+          <h3>Save proof instantly</h3>
+          <p>Add screenshots, links, documents, publications, app releases, recommendations, awards, and metrics.</p>
+        </article>
+        <article class="card">
+          <div class="num">Organize</div>
+          <h3>Build talent tracks</h3>
+          <p>AI connects evidence into tracks such as engineering, research, leadership, product impact, education, and recognition.</p>
+        </article>
+        <article class="card">
+          <div class="num">Guide</div>
+          <h3>Know what to do next</h3>
+          <p>The graph shows gaps, strengths, and next actions for career, education, immigration, grants, and recognition.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="use-cases">
+      <div class="wide-card">
+        <div class="panel">
+          <h3>High-stakes use cases</h3>
+          <ul class="list">
+            <li>Talent visas: EB-1A, O-1, global talent routes</li>
+            <li>Grants, fellowships, founder programs, accelerators</li>
+            <li>University applications and academic recognition</li>
+            <li>Senior roles, expert positioning, and public credibility</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Why it is different</h3>
+          <ul class="list">
+            <li>Not a resume builder</li>
+            <li>Not a document folder</li>
+            <li>A living graph of verifiable achievements</li>
+            <li>Scoped access: share only the relevant slice with an expert, organization, or AI system</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="founder">
+      <div class="quote">
+        <p>Built from a real evidence workflow, not from a resume template.</p>
+        <small>
+          Talent Master began as Ali Kuzhuget’s personal iPad/macOS prototype in May 2025 and is being productized through AI 4 lang LLC.
+        </small>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Current stage</h2>
+        <p>
+          Prototype → MVP → private beta. The immediate goal is to help ambitious professionals turn scattered proof into structured, shareable talent intelligence.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="button primary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
+        <a class="button secondary" href="mailto:agisight@gmail.com?subject=Talent%20Master%20partnership" data-contact-open>Partner with us</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><strong>Talent Master</strong><br />AI Achievement Intelligence</div>
+      <div>Founder: Ali Kuzhuget · AI 4 lang LLC · Contact: agisight@gmail.com</div>
+    </footer>
+
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+      <div class="modal-backdrop" data-contact-close></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+        <button class="modal-close" type="button" aria-label="Close" data-contact-close>×</button>
+        <h3 id="contactTitle">Write to the author</h3>
+        <p>Request access to Talent Master, ask a question, or discuss partnership.</p>
+        <div class="email-box">agisight@gmail.com</div>
+        <div class="modal-actions">
+          <a class="button primary" href="mailto:agisight@gmail.com?subject=Talent%20Master%20access%20request">Open email app</a>
+          <button class="button secondary" type="button" id="copyEmailButton">Copy email</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const modal = document.getElementById('contactModal');
+    const openButtons = document.querySelectorAll('[data-contact-open]');
+    const closeButtons = document.querySelectorAll('[data-contact-close]');
+    const copyButton = document.getElementById('copyEmailButton');
+    const email = 'agisight@gmail.com';
+
+    const openModal = (event) => {
+      event.preventDefault();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    };
+
+    openButtons.forEach((button) => button.addEventListener('click', openModal));
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        copyButton.textContent = 'Copied';
+        setTimeout(() => { copyButton.textContent = 'Copy email'; }, 1400);
+      } catch {
+        window.location.href = `mailto:${email}?subject=Talent%20Master%20access%20request`;
+      }
+    });
+  </script>
+</body>
+</html>
