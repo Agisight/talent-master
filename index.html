@@ -562,6 +562,32 @@
       line-height: 1.5;
     }
 
+    .privacy-card {
+      padding: 34px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .privacy-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .privacy-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .privacy-card p:last-child {
+      margin-bottom: 0;
+    }
+
     .footer {
       max-width: 1180px;
       margin: 0 auto;
@@ -608,6 +634,7 @@
         <a href="#product">Product</a>
         <a href="#use-cases">Use cases</a>
         <a href="#founder">Founder</a>
+        <a href="#privacy">Privacy</a>
         <a class="button secondary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
       </div>
     </nav>
@@ -856,9 +883,30 @@
       </div>
     </section>
 
+    <section class="section" id="privacy">
+      <div class="section-header">
+        <h2>Privacy</h2>
+        <p>
+          Talent Master is designed as a local-first productivity tool. The app can be tested without creating an account.
+        </p>
+      </div>
+      <div class="privacy-card">
+        <h3>Local-first data handling</h3>
+        <p>
+          Achievements, events, media references, saved feed items, AI chat history, preferences, and guest-mode data are stored on the user's device. Talent Master does not operate a central backend that lets other testers or users see someone else's local workspace.
+        </p>
+        <p>
+          If a user chooses to connect an external AI provider or account credential, those credentials are used for the selected integration and should be managed by the user. AI-generated content is informational and may be inaccurate.
+        </p>
+        <p>
+          No test account is required for review or beta testing. Launch the app and choose <strong>Continue as a Guest</strong>.
+        </p>
+      </div>
+    </section>
+
     <footer class="footer">
       <div><strong>Talent Master</strong><br />AI Achievement Intelligence</div>
-      <div>Founder: Ali Kuzhuget · AI 4 lang LLC · Contact: agisight@gmail.com</div>
+      <div>Founder: Ali Kuzhuget · AI 4 lang LLC · Contact: agisight@gmail.com · <a href="#privacy">Privacy</a></div>
     </footer>
 
     <div class="contact-modal" id="contactModal" aria-hidden="true">
