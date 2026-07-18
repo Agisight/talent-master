@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talent Master | AI Achievement Intelligence</title>
-  <meta name="description" content="Talent Master is an AI achievement intelligence platform that turns scattered evidence into a living talent graph for career, education, immigration, grants, and recognition." />
+  <meta name="description" content="Talent Master is the first-place winner of AITEX Summit Spring 2026—an AI achievement intelligence platform that turns scattered evidence into a living talent graph." />
 
   <meta property="og:title" content="Talent Master | AI Achievement Intelligence" />
-  <meta property="og:description" content="A living proof system for modern talent." />
+  <meta property="og:description" content="First-place winner at AITEX Summit Spring 2026. A living proof system for modern talent." />
   <meta property="og:type" content="website" />
+  <meta property="og:video" content="https://www.youtube.com/embed/F01hQntnmmY" />
+  <meta property="og:video:type" content="text/html" />
 
   <style>
     :root {
@@ -338,6 +340,179 @@
       50% { opacity: 0.88; }
     }
 
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .eyebrow.award {
+      color: #3b2a73;
+      border-color: rgba(139, 92, 246, 0.20);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.70), rgba(236, 229, 255, 0.64));
+      font-weight: 650;
+    }
+
+    .award-star {
+      display: inline-grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 6px 18px rgba(96, 89, 255, 0.28);
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    .recognition-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 26px;
+      padding: 30px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.80);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 122, 255, 0.13), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.15), transparent 38%),
+        rgba(255, 255, 255, 0.58);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .award-place {
+      width: 92px;
+      height: 92px;
+      display: grid;
+      place-items: center;
+      border-radius: 26px;
+      color: white;
+      background: linear-gradient(135deg, #111111, #31313a);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+      font-size: 1.35rem;
+      font-weight: 760;
+      letter-spacing: -0.05em;
+    }
+
+    .award-copy .award-kicker {
+      margin-bottom: 8px;
+      color: var(--purple);
+      font-size: 0.82rem;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .award-copy h2 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    .award-copy p {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .coverage-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .coverage-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 650;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .coverage-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(0, 122, 255, 0.24);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .demo-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+      gap: 18px;
+      padding: 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .demo-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 23px;
+      background: #0d0d0f;
+      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.18);
+    }
+
+    .demo-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .demo-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px 24px;
+    }
+
+    .demo-copy .award-kicker {
+      margin-bottom: 12px;
+    }
+
+    .demo-copy h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    .demo-copy p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.58;
+    }
+
+    .play-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
     .contact-modal {
       position: fixed;
       inset: 0;
@@ -621,6 +796,11 @@
       .section { padding: 54px 20px; }
       .grid { grid-template-columns: 1fr; }
       .wide-card { grid-template-columns: 1fr; }
+      .recognition-card { grid-template-columns: 1fr; align-items: start; }
+      .demo-card { grid-template-columns: 1fr; }
+      .demo-copy { padding: 24px 16px 12px; }
+      .award-place { width: 76px; height: 76px; border-radius: 22px; }
+      .recognition-card .button { justify-self: start; }
       .quote { padding: 32px; }
       .footer { padding: 48px 20px 28px; flex-direction: column; align-items: flex-start; }
     }
@@ -633,6 +813,8 @@
       <div class="nav-links">
         <a href="#product">Product</a>
         <a href="#use-cases">Use cases</a>
+        <a href="#demo">Demo</a>
+        <a href="#recognition">Recognition</a>
         <a href="#founder">Founder</a>
         <a href="#privacy">Privacy</a>
         <a class="button secondary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
@@ -641,13 +823,17 @@
 
     <section class="hero">
       <div>
-        <div class="eyebrow"><span class="dot"></span> Started as a personal prototype in May 2025</div>
+        <div class="hero-badges">
+          <div class="eyebrow award"><span class="award-star">★</span> First-place winner · AITEX Summit Spring 2026</div>
+          <div class="eyebrow"><span class="dot"></span> Started as a personal prototype in May 2025</div>
+        </div>
         <h1>A living proof system for <span class="gradient">modern talent.</span></h1>
         <p class="lead">
           Talent Master turns scattered achievements into an AI-powered talent graph — helping people capture evidence, organize multiple talent tracks, and understand what to do next.
         </p>
         <div class="actions">
-          <a class="button primary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
+          <a class="button primary" href="#demo"><span class="play-mark" aria-hidden="true">▶</span>Watch demo</a>
+          <a class="button secondary" href="mailto:agisight@gmail.com" data-contact-open>Request access</a>
           <a class="button secondary" href="#product">See how it works</a>
         </div>
       </div>
@@ -786,6 +972,48 @@
       </div>
     </section>
 
+    <section class="section" id="recognition">
+      <div class="recognition-card">
+        <div class="award-place" aria-label="First place">1st</div>
+        <div class="award-copy">
+          <div class="award-kicker">International AI hackathon recognition</div>
+          <h2>TalentMaster won first place at AITEX Summit Spring 2026.</h2>
+          <p>
+            Selected from more than 100 participation requests and evaluated by over 40 international judges, TalentMaster was recognized for its local-first, private-by-default architecture and its structured approach to professional evidence and achievement mapping.
+          </p>
+          <div class="coverage-links" aria-label="Award coverage and announcements">
+            <a class="coverage-link" href="https://www.techtimes.com/articles/319046/20260625/spring-2026-hackathon-tested-ai-projects-through-product-review.htm" target="_blank" rel="noopener noreferrer">Tech Times feature ↗</a>
+            <a class="coverage-link" href="https://www.linkedin.com/posts/aitex-the-association-of-information-technology-experts_aitex-aitexsummit-ai-activity-7472441286336339968-Gx3p/" target="_blank" rel="noopener noreferrer">AITEX announcement ↗</a>
+            <a class="coverage-link" href="https://www.youtube.com/watch?v=F01hQntnmmY" target="_blank" rel="noopener noreferrer">Product demo ↗</a>
+          </div>
+        </div>
+        <a class="button secondary" href="https://aitexsummit.com/spring2026/projects" target="_blank" rel="noopener noreferrer">Official winner page ↗</a>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="demo-card">
+        <div class="demo-video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/F01hQntnmmY?rel=0"
+            title="TalentMaster product demo"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="demo-copy">
+          <div class="award-kicker">Product demo</div>
+          <h2>See the living talent graph in action.</h2>
+          <p>Watch how TalentMaster turns scattered evidence into structured achievements, connected talent tracks, and clear next steps.</p>
+          <div class="actions">
+            <a class="button primary" href="https://www.youtube.com/watch?v=F01hQntnmmY" target="_blank" rel="noopener noreferrer"><span class="play-mark" aria-hidden="true">▶</span>Open on YouTube ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="section-header">
         <h2>The problem</h2>
@@ -874,7 +1102,7 @@
       <div class="section-header">
         <h2>Current stage</h2>
         <p>
-          Prototype → MVP → private beta. The immediate goal is to help ambitious professionals turn scattered proof into structured, shareable talent intelligence.
+          Prototype → MVP → private beta with friends and trusted early testers. The immediate goal is to validate the core workflow and help ambitious professionals turn scattered proof into structured, shareable talent intelligence.
         </p>
       </div>
       <div class="actions">
